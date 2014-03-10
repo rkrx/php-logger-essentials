@@ -1,5 +1,6 @@
 {
 	"name": "rkr/logger-essentials",
+	"license": "MIT",
 	"require": {
 		"psr/log": "~1.0"
 	}
