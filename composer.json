@@ -6,7 +6,7 @@
 	},
 	"autoload": {
 		"psr-0": {
-			"Kir\\Logging\\Essentials": "src/"
+			"Kir\\Logging\\Essentials\\": "src/"
 		}
 	}
 }
