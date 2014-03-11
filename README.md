@@ -2,7 +2,7 @@ php-logger-essentials
 =====================
 Some useful additions to the psr/log-Interface
 
-## `ExtendedLogger` for sub-loggers
+#### `ExtendedLogger` for sub-loggers
 You can create subloggers from a logger-instance. The reason is to easly create a base-context for all deriving log-messages. So you can track, how a certain log-message come from. In a different project, the call-context could be different.
 
 ```PHP
@@ -13,7 +13,7 @@ $subLogger = $logger->createSubLogger('Sub-Sub-Routine');
 $subLogger->notice('Hello World'); // Sub-Routine / Sub-Sub-Routine: Hello World
 ```
 
-## `Rfc5424LogLevels` and `LogLevelTranslator` for log-level conversion
+#### `Rfc5424LogLevels` and `LogLevelTranslator` for log-level conversion
 
 ```PHP
 $psrLogLevel = Psr\Log\LogLevel::DEBUG;
@@ -24,12 +24,12 @@ if($rfc5454LogLevel >= $rfc5454WarningLevel) {
 }
 ```
 
-## `ExcludedLogLevelFilterWrapper`
+#### `ExcludedLogLevelFilterWrapper`
 Define a single log-level to be excluded.
 
-## `LogLevelFilterWrapper`
+#### `LogLevelFilterWrapper`
 Define a range of valid log-levels.
 
-## `CallbackFilterWrapper`
+#### `CallbackFilterWrapper`
 Filter log-messages by a user defined callback filter.
 
