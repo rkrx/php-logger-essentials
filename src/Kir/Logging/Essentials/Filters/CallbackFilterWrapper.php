@@ -1,15 +1,10 @@
 <?php
 namespace Kir\Logging\Essentials\Filters;
 
-use Kir\Logging\Essentials\Common\AbstractLogger;
+use Kir\Logging\Essentials\Common\AbstractLoggerWrapper;
 use Psr\Log\LoggerInterface;
 
-class CallbackFilterWrapper extends AbstractLogger {
-	/**
-	 * @var LoggerInterface
-	 */
-	private $logger = null;
-
+class CallbackFilterWrapper extends AbstractLoggerWrapper {
 	/**
 	 * @var callable
 	 */
@@ -20,7 +15,7 @@ class CallbackFilterWrapper extends AbstractLogger {
 	 * @param callable $callback
 	 */
 	public function __construct(LoggerInterface $logger, $callback) {
-		$this->logger = $logger;
+		parent::__construct($logger);
 		$this->callback = $callback;
 	}
 
@@ -34,7 +29,7 @@ class CallbackFilterWrapper extends AbstractLogger {
 	public function log($level, $message, array $context = array()) {
 		$result = call_user_func_array($this->callback, array($level, $message, $context));
 		if($result) {
-			$this->logger->log($level, $message, $context);
+			$this->logger()->log($level, $message, $context);
 		}
 		return $this;
 	}

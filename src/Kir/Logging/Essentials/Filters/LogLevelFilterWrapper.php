@@ -2,15 +2,11 @@
 namespace Kir\Logging\Essentials\Filters;
 
 use Kir\Logging\Essentials\Common\AbstractLogger;
+use Kir\Logging\Essentials\Common\AbstractLoggerWrapper;
 use Kir\Logging\Essentials\Tools\LogLevelTranslator;
 use Psr\Log\LoggerInterface;
 
-class LogLevelFilterWrapper extends AbstractLogger {
-	/**
-	 * @var LoggerInterface
-	 */
-	private $logger;
-
+class LogLevelFilterWrapper extends AbstractLoggerWrapper {
 	/**
 	 * @var int
 	 */
@@ -27,7 +23,7 @@ class LogLevelFilterWrapper extends AbstractLogger {
 	 * @param string $maxLevel
 	 */
 	public function __construct(LoggerInterface $logger, $minLevel, $maxLevel) {
-		$this->logger = $logger;
+		parent::__construct($logger);
 		$this->minLevel = 7 - LogLevelTranslator::getLevelNo($minLevel);
 		$this->maxLevel = 7 - LogLevelTranslator::getLevelNo($maxLevel);
 	}
@@ -42,7 +38,7 @@ class LogLevelFilterWrapper extends AbstractLogger {
 	public function log($psrLevel, $message, array $context = array()) {
 		$level = 7 - LogLevelTranslator::getLevelNo($psrLevel);
 		if($this->minLevel <= $level && $this->maxLevel >= $level) {
-			$this->logger->log($psrLevel, $message, $context);
+			$this->logger()->log($psrLevel, $message, $context);
 		}
 		return $this;
 	}

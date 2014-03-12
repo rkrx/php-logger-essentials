@@ -1,15 +1,10 @@
 <?php
 namespace Kir\Logging\Essentials\Filters;
 
-use Kir\Logging\Essentials\Common\AbstractLogger;
+use Kir\Logging\Essentials\Common\AbstractLoggerWrapper;
 use Psr\Log\LoggerInterface;
 
-class ExcludedLogLevelFilterWrapper extends AbstractLogger {
-	/**
-	 * @var LoggerInterface
-	 */
-	private $logger;
-
+class ExcludedLogLevelFilterWrapper extends AbstractLoggerWrapper {
 	/**
 	 * @var string
 	 */
@@ -20,7 +15,7 @@ class ExcludedLogLevelFilterWrapper extends AbstractLogger {
 	 * @param string $excludedLogLevel
 	 */
 	public function __construct(LoggerInterface $logger, $excludedLogLevel) {
-		$this->logger = $logger;
+		parent::__construct($logger);
 		$this->excludedLogLevel = $excludedLogLevel;
 	}
 
@@ -33,7 +28,7 @@ class ExcludedLogLevelFilterWrapper extends AbstractLogger {
 	 */
 	public function log($psrLevel, $message, array $context = array()) {
 		if($this->excludedLogLevel != $psrLevel) {
-			$this->logger->log($psrLevel, $message, $context);
+			$this->logger()->log($psrLevel, $message, $context);
 		}
 		return $this;
 	}
