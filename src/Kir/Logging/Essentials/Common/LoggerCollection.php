@@ -13,7 +13,7 @@ class LoggerCollection extends AbstractLogger {
 	 */
 	public function __construct(array $loggers = array()) {
 		foreach($loggers as $logger) {
-			$this->addLogger($logger);
+			$this->add($logger);
 		}
 	}
 
@@ -21,7 +21,7 @@ class LoggerCollection extends AbstractLogger {
 	 * @param LoggerInterface $logger
 	 * @return $this
 	 */
-	public function addLogger(LoggerInterface $logger) {
+	public function add(LoggerInterface $logger) {
 		$this->loggers[] = $logger;
 		return $this;
 	}
