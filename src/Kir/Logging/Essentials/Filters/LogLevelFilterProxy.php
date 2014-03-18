@@ -5,8 +5,9 @@ use Kir\Logging\Essentials\Common\AbstractLogger;
 use Kir\Logging\Essentials\Common\AbstractLoggerWrapper;
 use Kir\Logging\Essentials\Tools\LogLevelTranslator;
 use Psr\Log\LoggerInterface;
+use Psr\Log\LogLevel;
 
-class LogLevelFilterWrapper extends AbstractLoggerWrapper {
+class LogLevelFilterProxy extends AbstractLoggerWrapper {
 	/**
 	 * @var int
 	 */
@@ -22,7 +23,7 @@ class LogLevelFilterWrapper extends AbstractLoggerWrapper {
 	 * @param string $minLevel
 	 * @param string $maxLevel
 	 */
-	public function __construct(LoggerInterface $logger, $minLevel, $maxLevel) {
+	public function __construct(LoggerInterface $logger, $minLevel = LogLevel::DEBUG, $maxLevel = LogLevel::EMERGENCY) {
 		parent::__construct($logger);
 		$this->minLevel = 7 - LogLevelTranslator::getLevelNo($minLevel);
 		$this->maxLevel = 7 - LogLevelTranslator::getLevelNo($maxLevel);

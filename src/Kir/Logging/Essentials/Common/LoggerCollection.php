@@ -11,7 +11,7 @@ class LoggerCollection extends AbstractLogger {
 
 	/**
 	 */
-	public function __construct(array $loggers) {
+	public function __construct(array $loggers = array()) {
 		foreach($loggers as $logger) {
 			$this->addLogger($logger);
 		}
