@@ -1,7 +1,6 @@
 <?php
 namespace Kir\Logging\Essentials\Filters;
 
-use Kir\Logging\Essentials\Common\AbstractLogger;
 use Kir\Logging\Essentials\Common\AbstractLoggerAware;
 use Kir\Logging\Essentials\Tools\LogLevelTranslator;
 use Psr\Log\LoggerInterface;
