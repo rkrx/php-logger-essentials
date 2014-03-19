@@ -3,7 +3,7 @@ namespace Kir\Logging\Essentials\Common;
 
 use Psr\Log\LoggerInterface;
 
-abstract class AbstractLoggerWrapper extends AbstractLogger {
+abstract class AbstractLoggerAware extends AbstractLogger {
 	/**
 	 * @var LoggerInterface
 	 */

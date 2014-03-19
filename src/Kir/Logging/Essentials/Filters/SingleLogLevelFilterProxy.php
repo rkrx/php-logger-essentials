@@ -1,10 +1,10 @@
 <?php
 namespace Kir\Logging\Essentials\Filters;
 
-use Kir\Logging\Essentials\Common\AbstractLoggerWrapper;
+use Kir\Logging\Essentials\Common\AbstractLoggerAware;
 use Psr\Log\LoggerInterface;
 
-class SingleLogLevelFilterProxy extends AbstractLoggerWrapper {
+class SingleLogLevelFilterProxy extends AbstractLoggerAware {
 	/**
 	 * @var string
 	 */

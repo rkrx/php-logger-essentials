@@ -2,12 +2,12 @@
 namespace Kir\Logging\Essentials\Filters;
 
 use Kir\Logging\Essentials\Common\AbstractLogger;
-use Kir\Logging\Essentials\Common\AbstractLoggerWrapper;
+use Kir\Logging\Essentials\Common\AbstractLoggerAware;
 use Kir\Logging\Essentials\Tools\LogLevelTranslator;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
 
-class LogLevelRangeFilterProxy extends AbstractLoggerWrapper {
+class LogLevelRangeFilterProxy extends AbstractLoggerAware {
 	/**
 	 * @var int
 	 */

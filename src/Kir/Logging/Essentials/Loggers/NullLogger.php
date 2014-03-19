@@ -1,5 +1,5 @@
 <?php
-namespace Kir\Logging\Essentials\Targets;
+namespace Kir\Logging\Essentials\Loggers;
 
 use Kir\Logging\Essentials\Common\AbstractLogger;
 use Kir\Logging\Essentials\Formatters\Proxies;

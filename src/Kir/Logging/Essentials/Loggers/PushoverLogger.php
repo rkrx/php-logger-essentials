@@ -1,10 +1,10 @@
 <?php
-namespace Kir\Logging\Essentials\Targets;
+namespace Kir\Logging\Essentials\Loggers;
 
 use Exception;
+use Psr\Log\LogLevel;
 use Kir\Logging\Essentials\Common\AbstractFormatableLogger;
 use Kir\Logging\Essentials\Formatters\Formatter;
-use Psr\Log\LogLevel;
 
 class PushoverLogger extends AbstractFormatableLogger {
 	/**

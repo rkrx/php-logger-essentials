@@ -1,12 +1,12 @@
 <?php
-namespace Kir\Logging\Essentials\Targets;
+namespace Kir\Logging\Essentials\Loggers;
 
-use Kir\Logging\Essentials\Common\AbstractFormatableLogger;
 use Kir\Logging\Essentials\Formatters\Formatter;
+use Kir\Logging\Essentials\Common\AbstractFormatableLogger;
 use Kir\Logging\Essentials\Formatters\Proxies\DateTimeFormatProxy;
 use Kir\Logging\Essentials\Formatters\Proxies\NewlineFomatProxy;
 
-class StreamLogger extends AbstractFormatableLogger {
+class ResourceLogger extends AbstractFormatableLogger {
 	/**
 	 * @var resource
 	 */
