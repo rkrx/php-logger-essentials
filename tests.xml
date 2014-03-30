@@ -1,0 +1,13 @@
+<phpunit bootstrap="vendor/autoload.php"
+		 backupGlobals="false"
+		 backupStaticAttributes="false"
+		 strict="true"
+		 verbose="true"
+		 timeoutForSmallTests="5">
+	<testsuites>
+		<testsuite name="LoggerEssentials">
+			<file>tests/Kir/Logging/Essentials/Tools/LogLevelTranslatorTest.php</file>
+			<file>tests/Kir/Logging/Essentials/Loggers/ResourceLoggerTest.php</file>
+		</testsuite>
+	</testsuites>
+</phpunit>
