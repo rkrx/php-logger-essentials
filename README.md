@@ -1,5 +1,7 @@
 php-logger-essentials
 =====================
+[![Build Status](https://travis-ci.org/rkrx/php-logger-essentials.svg?branch=master)](https://travis-ci.org/rkrx/php-logger-essentials)
+
 Some useful additions to the psr/log-Interface
 
 ### `ExtendedLogger` for sub-loggers
