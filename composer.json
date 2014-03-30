@@ -2,6 +2,7 @@
 	"name": "rkr/logger-essentials",
 	"license": "MIT",
 	"require": {
+		"php": ">= 5.3",
 		"psr/log": "~1.0"
 	},
 	"autoload": {
