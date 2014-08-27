@@ -9,7 +9,7 @@ class StreamLogger extends ResourceLogger {
 	 * @param string $mode
 	 * @param Formatter $formatter
 	 */
-	public function __construct($connectionUri, $mode, Formatter $formatter = null) {
+	public function __construct($connectionUri, $mode='a+', Formatter $formatter = null) {
 		$resource = fopen($connectionUri, $mode);
 		parent::__construct($resource, $formatter);
 	}
