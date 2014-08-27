@@ -1,4 +1,4 @@
-php-logger-essentials
+rkr/logger-essentials
 =====================
 [![Build Status](https://travis-ci.org/rkrx/php-logger-essentials.svg?branch=master)](https://travis-ci.org/rkrx/php-logger-essentials) [![Latest Stable Version](https://poser.pugx.org/rkr/logger-essentials/version.svg)](https://packagist.org/packages/rkr/logger-essentials) [![Total Downloads](https://poser.pugx.org/rkr/logger-essentials/downloads.svg)](https://packagist.org/packages/rkr/logger-essentials) [![License](https://poser.pugx.org/rkr/logger-essentials/license.svg)](https://packagist.org/packages/rkrx/php-logger-essentials)
 
