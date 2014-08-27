@@ -11,6 +11,20 @@ Could these adapters not just be loggers themself? Yes, they could but for some 
 
 You can simply use LoggerCollection which also implements the LoggerInterface to replace Monolog\Logger. Then add as many psr-3-compliant Loggers to LoggerCollection as you like, wrap them in extenders, filters or formatters and gain more control about how your messages are treated.
 
+### `LoggerCollection` for composite logging
+
+```PHP
+$errorLogger = new LoggerCollection();
+$errorLogger->add(new ErrorLogLogger());
+$errorLogger->add(new PushoverLogger(/* ... */));
+
+$logger = new LoggerCollection();
+$logger->add(new LogLevelRangeFilterProxy($errorLogger, LogLevel::ERROR, LogLevel::EMERGENCY));
+$logger->add(new ResourceLogger(STDOUT));
+
+$logger->error("This is a log messages");
+```
+
 ### `ExtendedLogger` for sub-loggers
 You can create subloggers from a logger-instance. The reason is to easly create a base-context for all deriving log-messages. So you can track, how a certain log-message come from. In a different project, the call-context could be different.
 
