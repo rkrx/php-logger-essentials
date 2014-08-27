@@ -2,7 +2,14 @@ php-logger-essentials
 =====================
 [![Build Status](https://travis-ci.org/rkrx/php-logger-essentials.svg?branch=master)](https://travis-ci.org/rkrx/php-logger-essentials)
 
-Some useful additions to the psr/log-Interface
+A fully standards-compliant Logger ((PSR-3)[http://www.php-fig.org/psr/psr-3/]) with support for some extended features.
+
+### So, why not just go with monolog?
+(https://github.com/Seldaek/monolog)[Monolog] comes with an impressive amount of logger-adapters ready for production.
+
+Could these adapters not just be loggers itself? Yes, they could. For some reason they are not. Because of that, you are bound to the adapters shipped with monolog (or adapters ready on packagist, or just write your own). Because we have a standard (psr-3) I believe all we need is a composite-Object that notifies all injected loggers with new messages - this is what monolog does.
+
+You can simply use LoggerCollection which also implements the LoggerInterface to replace Monolog\Logger. Then add as many psr-3-compliant Loggers to LoggerCollection as you like, wrap them in extenders, filters or formatters and gain more control about how your messages are treated.
 
 ### `ExtendedLogger` for sub-loggers
 You can create subloggers from a logger-instance. The reason is to easly create a base-context for all deriving log-messages. So you can track, how a certain log-message come from. In a different project, the call-context could be different.
