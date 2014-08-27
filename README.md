@@ -2,10 +2,10 @@ php-logger-essentials
 =====================
 [![Build Status](https://travis-ci.org/rkrx/php-logger-essentials.svg?branch=master)](https://travis-ci.org/rkrx/php-logger-essentials)
 
-A fully standards-compliant Logger ((PSR-3)[http://www.php-fig.org/psr/psr-3/]) with support for some extended features.
+A fully standards-compliant Logger ([PSR-3](http://www.php-fig.org/psr/psr-3/)) with support for some extended features.
 
 ### So, why not just go with monolog?
-(https://github.com/Seldaek/monolog)[Monolog] comes with an impressive amount of logger-adapters ready for production.
+[https://github.com/Seldaek/monolog](Monolog) comes with an impressive amount of logger-adapters ready for production.
 
 Could these adapters not just be loggers themself? Yes, they could but for some reason they are not. Because of that, you are bound to the adapters shipped with monolog (or adapters ready on packagist, or just write your own). Because we have a standard (psr-3) I believe all we need is a composite-object that holds many psr-3-loggers and notify them with new messages - at least this is what monolog does, but with non-standard adapters.
 
