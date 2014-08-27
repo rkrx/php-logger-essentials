@@ -1,6 +1,6 @@
 php-logger-essentials
 =====================
-[![Build Status](https://travis-ci.org/rkrx/php-logger-essentials.svg?branch=master)](https://travis-ci.org/rkrx/php-logger-essentials) [![Latest Stable Version](https://poser.pugx.org/rkr/logger-essentials/version.svg)](https://packagist.org/packages/rkr/logger-essentials) [![Latest Unstable Version](https://poser.pugx.org/rkr/logger-essentials/v/unstable.svg)](//packagist.org/packages/rkr/logger-essentials) [![Total Downloads](https://poser.pugx.org/rkr/logger-essentials/downloads.svg)](https://packagist.org/packages/rkr/logger-essentials)
+[![Build Status](https://travis-ci.org/rkrx/php-logger-essentials.svg?branch=master)](https://travis-ci.org/rkrx/php-logger-essentials) [![Latest Stable Version](https://poser.pugx.org/rkr/logger-essentials/version.svg)](https://packagist.org/packages/rkr/logger-essentials) [![Total Downloads](https://poser.pugx.org/rkr/logger-essentials/downloads.svg)](https://packagist.org/packages/rkr/logger-essentials)
 
 A fully standards-compliant Logger ([psr-3](http://www.php-fig.org/psr/psr-3/)) with support for some extended features.
 
