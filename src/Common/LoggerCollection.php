@@ -10,6 +10,7 @@ class LoggerCollection extends AbstractLogger {
 	private $loggers = array();
 
 	/**
+	 * @param array $loggers
 	 */
 	public function __construct(array $loggers = array()) {
 		foreach($loggers as $logger) {
