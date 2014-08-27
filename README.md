@@ -48,7 +48,7 @@ $logger->notice('test');
 Add a prefix to all log messages:
 
 ```PHP
-$logger = new MessagePrefixProxy(new StreamLogger(STDOUT), 'AddCustomer: ');
+$logger = new MessagePrefixProxy(new ResourceLogger(STDOUT), 'AddCustomer: ');
 ```
 
 ### CallbackFilterWrapper
@@ -58,5 +58,7 @@ Filter log-messages by a user defined callback filter.
 
 * ErrorLogLogger
 * StreamLogger
+* ResourceLogger
 * PushoverLogger
 * UdpLogger
+* NullLogger
