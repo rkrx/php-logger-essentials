@@ -6,8 +6,9 @@
 		 timeoutForSmallTests="5">
 	<testsuites>
 		<testsuite name="LoggerEssentials">
-			<file>tests/Kir/Logging/Essentials/Tools/LogLevelTranslatorTest.php</file>
-			<file>tests/Kir/Logging/Essentials/Loggers/ResourceLoggerTest.php</file>
+			<file>tests/Tools/LogLevelTranslatorTest.php</file>
+			<file>tests/Loggers/ResourceLoggerTest.php</file>
+			<file>tests/Loggers/ArrayLoggerTest.php</file>
 		</testsuite>
 	</testsuites>
 </phpunit>
