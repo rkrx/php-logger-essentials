@@ -42,7 +42,11 @@ class MessagePrefixProxy extends AbstractLoggerAware {
 	 */
 	public function log($level, $message, array $context = array()) {
 		$parts = array();
-		$parts[] = join($this->concatenator, $this->caption);
+		if(is_array($this->caption)) {
+			$parts[] = join($this->concatenator, $this->caption);
+		} else {
+			$parts[] = $this->caption;
+		}
 		$parts[] = $message;
 		$parts = array_filter($parts);
 		$newMessage = join($this->endingConcatenator, $parts);
