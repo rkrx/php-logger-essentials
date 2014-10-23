@@ -2,6 +2,7 @@
 namespace Kir\Logging\Essentials\Common;
 
 use Kir\Logging\Essentials\CaptionRenderer;
+use Kir\Logging\Essentials\CaptionRenderers\CommonCaptionRenderer;
 use Kir\Logging\Essentials\ExtendedLogger;
 use Psr\Log\LoggerInterface;
 
@@ -26,9 +27,9 @@ class ExtendedPsrLoggerWrapper extends AbstractLogger implements ExtendedLogger 
 	 * @param CaptionRenderer $captionRenderer
 	 * @param array $captionPath
 	 */
-	public function __construct(LoggerInterface $logger, CaptionRenderer $captionRenderer, array $captionPath = array()) {
+	public function __construct(LoggerInterface $logger, CaptionRenderer $captionRenderer = null, array $captionPath = array()) {
 		$this->logger = $logger;
-		$this->captionRenderer = $captionRenderer;
+		$this->captionRenderer = $captionRenderer ?: new CommonCaptionRenderer();
 		$this->captionPath = $captionPath;
 	}
 
