@@ -38,7 +38,9 @@ class ExtendedPsrLoggerWrapper extends AbstractLogger implements ExtendedLogger 
 	 * @return ExtendedLogger
 	 */
 	public function createSubLogger($caption) {
-		return new static($this->logger, $this->captionRenderer, $this->captionPath + array($caption));
+		$path = $this->captionPath;
+		$path[] = $caption;
+		return new static($this->logger, $this->captionRenderer, $path);
 	}
 
 	/**

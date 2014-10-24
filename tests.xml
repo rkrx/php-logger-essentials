@@ -9,6 +9,7 @@
 			<file>tests/Tools/LogLevelTranslatorTest.php</file>
 			<file>tests/Loggers/ResourceLoggerTest.php</file>
 			<file>tests/Loggers/ArrayLoggerTest.php</file>
+			<file>tests/Common/ExtendedPsrLoggerWrapperTest.php</file>
 		</testsuite>
 	</testsuites>
 </phpunit>
