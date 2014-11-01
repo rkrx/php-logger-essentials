@@ -1,20 +1,22 @@
 <?php
-namespace Kir\Logging\Essentials\Filters;
+namespace Kir\Logging\Essentials\Formatters;
 
-use Kir\Logging\Essentials\Common\AbstractLoggerAware;
+use Kir\Logging\Essentials\Common\AbstractLogger;
 use Psr\Log\LoggerInterface;
 
-class MessagePrefixProxy extends AbstractLoggerAware {
+class MessagePrefixFormatter extends AbstractLogger {
+	/**
+	 * @var LoggerInterface
+	 */
+	private $logger;
 	/**
 	 * @var string
 	 */
 	private $caption = null;
-
 	/**
 	 * @var string
 	 */
 	private $concatenator = null;
-
 	/**
 	 * @var string
 	 */
@@ -27,7 +29,7 @@ class MessagePrefixProxy extends AbstractLoggerAware {
 	 * @param string $endingConcatenator
 	 */
 	public function __construct(LoggerInterface $logger, $caption = null, $concatenator = ' > ', $endingConcatenator = ': ') {
-		parent::__construct($logger);
+		$this->logger = $logger;
 		$this->caption = $caption;
 		$this->concatenator = $concatenator;
 		$this->endingConcatenator = $endingConcatenator;
@@ -46,7 +48,7 @@ class MessagePrefixProxy extends AbstractLoggerAware {
 		$parts[] = $message;
 		$parts = array_filter($parts);
 		$newMessage = join($this->endingConcatenator, $parts);
-		$this->logger()->log($level, $newMessage, $context);
+		$this->logger->log($level, $newMessage, $context);
 		return $this;
 	}
 }

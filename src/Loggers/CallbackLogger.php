@@ -1,5 +1,9 @@
 <?php
-namespace Kir\Logging\Essentials\Common;
+namespace Kir\Logging\Loggers;
+
+use Kir\Logging\Essentials\Common\AbstractFormatableLogger;
+use Kir\Logging\Essentials\Common\AbstractLogger;
+use Kir\Logging\Essentials\Formatters\Formatter;
 
 class CallbackLogger extends AbstractLogger {
 	/**
@@ -22,7 +26,10 @@ class CallbackLogger extends AbstractLogger {
 	 * @return $this
 	 */
 	public function log($level, $message, array $context = array()) {
-		call_user_func($this->callable, $level, $message, $context);
+		try {
+			call_user_func($this->callable, $level, $message, $context);
+		} catch(\Exception $e) {
+		}
 		return $this;
 	}
 }

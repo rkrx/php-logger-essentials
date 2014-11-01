@@ -2,27 +2,35 @@
 namespace Kir\Logging\Essentials\Loggers;
 
 use Exception;
+use Kir\Logging\Essentials\Common\AbstractLogger;
 use Psr\Log\LogLevel;
-use Kir\Logging\Essentials\Common\AbstractFormatableLogger;
-use Kir\Logging\Essentials\Formatters\Formatter;
 
-class PushoverLogger extends AbstractFormatableLogger {
+class PushoverLogger extends AbstractLogger {
 	/**
 	 * @var string[]
 	 */
 	private $parameters = array();
+	/**
+	 * @var array
+	 */
+	private $contextConverterCallback;
 
 	/**
 	 * @param string $user
 	 * @param string $token
 	 * @param array $parameters
-	 * @param Formatter $formatter
+	 * @param \Closure $contextConverterCallback
 	 */
-	public function __construct($user, $token, array $parameters, Formatter $formatter = null) {
-		parent::__construct($formatter);
+	public function __construct($user, $token, array $parameters, $contextConverterCallback = null) {
 		$parameters['token'] = $token;
 		$parameters['user'] = $user;
 		$this->parameters = $parameters;
+		if(!$contextConverterCallback) {
+			$contextConverterCallback = function() {
+				return array();
+			};
+		}
+		$this->contextConverterCallback = $contextConverterCallback;
 	}
 
 
@@ -36,8 +44,8 @@ class PushoverLogger extends AbstractFormatableLogger {
 	public function log($level, $message, array $context = array()) {
 		try {
 			$parameters = $this->parameters;
+			$parameters = array_merge($parameters, call_user_func($this->contextConverterCallback, $context));
 			$parameters['priority'] = $this->convertLevelToPriority($level);
-			$message = $this->getFormatter()->format($level, $message, $context, $parameters);
 			$parameters['message'] = $message;
 			$this->push($parameters);
 		} catch (Exception $e) {

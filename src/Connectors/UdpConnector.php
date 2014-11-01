@@ -1,12 +1,11 @@
 <?php
-namespace Kir\Logging\Essentials\Loggers\Connectors;
+namespace Kir\Logging\Essentials\Connectors;
 
 class UdpConnector implements Connector {
 	/**
 	 * @var string
 	 */
 	private $host;
-
 	/**
 	 * @var int
 	 */

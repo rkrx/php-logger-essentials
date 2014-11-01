@@ -1,9 +1,9 @@
 <?php
-namespace Kir\Logging\Essentials\Loggers;
+namespace Kir\Logging\Essentials\Formatters;
 
 use Kir\Logging\Essentials\Common\AbstractLogger;
 
-class NullLogger extends AbstractLogger {
+class PassThroughFormatter extends AbstractLogger {
 	/**
 	 * Logs with an arbitrary level.
 	 * @param string $level
@@ -12,6 +12,6 @@ class NullLogger extends AbstractLogger {
 	 * @return $this
 	 */
 	public function log($level, $message, array $context = array()) {
-		return $this;
+		return $message;
 	}
 }

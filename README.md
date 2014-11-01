@@ -2,25 +2,27 @@ rkr/logger-essentials
 =====================
 [![Build Status](https://travis-ci.org/rkrx/php-logger-essentials.svg?branch=master)](https://travis-ci.org/rkrx/php-logger-essentials) [![Latest Stable Version](https://poser.pugx.org/rkr/logger-essentials/version.svg)](https://packagist.org/packages/rkr/logger-essentials) [![Total Downloads](https://poser.pugx.org/rkr/logger-essentials/downloads.svg)](https://packagist.org/packages/rkr/logger-essentials) [![License](https://poser.pugx.org/rkr/logger-essentials/license.svg)](https://packagist.org/packages/rkrx/php-logger-essentials)
 
-A fully standards-compliant Logger ([psr-3](http://www.php-fig.org/psr/psr-3/)) with support for some extended features.
+A fully standards-compliant Logger ([psr-3](http://www.php-fig.org/psr/psr-3/)) with some useful wrappers and adapters.
 
-### So, why not just go with monolog?
-[Monolog](https://github.com/Seldaek/monolog) comes with an impressive amount of logger-adapters ready for production.
+### So, why not just go with already existing libraries?
 
-Could these adapters not just be loggers themself? Yes, they could but for some reason they are not. Because of that, you are bound to the adapters shipped with monolog (or adapters ready on packagist, or just write your own). Because we have a standard (psr-3) I believe all we need is a composite-object that holds many psr-3-loggers and notify them with new messages - at least this is what monolog does, but with non-standard adapters.
+Compared with...
 
-You can simply use LoggerCollection which also implements the LoggerInterface to replace Monolog\Logger. Then add as many psr-3-compliant Loggers to LoggerCollection as you like, wrap them in extenders, filters or formatters and gain more control about how your messages are treated.
+* [Monolog](doc/monolog.md)
+* [KLogger](doc/klogger.md)
+* [Log4PHP](doc/log4php.md)
 
 ### `LoggerCollection` for composite logging
 
 ```PHP
 $errorLogger = new LoggerCollection();
+$errorLogger->add(new ResourceLogger(STDERR));
 $errorLogger->add(new ErrorLogLogger());
 $errorLogger->add(new PushoverLogger(/* ... */));
 
 $logger = new LoggerCollection();
 $logger->add(new LogLevelRangeFilterProxy($errorLogger, LogLevel::ERROR, LogLevel::EMERGENCY));
-$logger->add(new ResourceLogger(STDOUT));
+$errorLogger->add(new LogLevelRangeFilterProxy(new ResourceLogger(STDOUT), LogLevel::INFO, LogLevel::WARNING));
 
 $logger->error("This is a log messages");
 ```

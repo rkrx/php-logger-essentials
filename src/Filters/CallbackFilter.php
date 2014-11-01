@@ -4,7 +4,7 @@ namespace Kir\Logging\Essentials\Filters;
 use Kir\Logging\Essentials\Common\AbstractLoggerAware;
 use Psr\Log\LoggerInterface;
 
-class CallbackFilterProxy extends AbstractLoggerAware {
+class CallbackFilter extends AbstractLoggerAware {
 	/**
 	 * @var callable
 	 */

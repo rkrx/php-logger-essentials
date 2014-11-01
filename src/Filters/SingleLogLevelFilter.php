@@ -4,7 +4,7 @@ namespace Kir\Logging\Essentials\Filters;
 use Kir\Logging\Essentials\Common\AbstractLoggerAware;
 use Psr\Log\LoggerInterface;
 
-class SingleLogLevelFilterProxy extends AbstractLoggerAware {
+class SingleLogLevelFilter extends AbstractLoggerAware {
 	/**
 	 * @var string
 	 */

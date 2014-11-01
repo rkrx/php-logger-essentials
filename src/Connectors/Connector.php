@@ -1,5 +1,5 @@
 <?php
-namespace Kir\Logging\Essentials\Loggers\Connectors;
+namespace Kir\Logging\Essentials\Connectors;
 
 interface Connector {
 	/**

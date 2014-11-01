@@ -6,7 +6,7 @@ use Kir\Logging\Essentials\Tools\LogLevelTranslator;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
 
-class LogLevelRangeFilterProxy extends AbstractLoggerAware {
+class LogLevelRangeFilter extends AbstractLoggerAware {
 	/**
 	 * @var int
 	 */

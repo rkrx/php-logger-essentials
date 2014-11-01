@@ -1,12 +1,9 @@
 <?php
 namespace Kir\Logging\Essentials\Loggers;
 
-use Kir\Logging\Essentials\Formatters\Formatter;
-use Kir\Logging\Essentials\Common\AbstractFormatableLogger;
-use Kir\Logging\Essentials\Formatters\Proxies\DateTimeFormatProxy;
-use Kir\Logging\Essentials\Formatters\Proxies\NewlineFomatProxy;
+use Kir\Logging\Essentials\Common\AbstractLogger;
 
-class ResourceLogger extends AbstractFormatableLogger {
+class ResourceLogger extends AbstractLogger {
 	/**
 	 * @var resource
 	 */
@@ -14,15 +11,8 @@ class ResourceLogger extends AbstractFormatableLogger {
 
 	/**
 	 * @param resource $resource
-	 * @param Formatter $formatter
 	 */
-	public function __construct($resource, Formatter $formatter = null) {
-		if($formatter === null) {
-			$formatter = self::getDefaultFormatter();
-			$formatter = new DateTimeFormatProxy($formatter);
-			$formatter = new NewlineFomatProxy($formatter);
-		}
-		parent::__construct($formatter);
+	public function __construct($resource) {
 		$this->resource = $resource;
 	}
 
@@ -34,8 +24,7 @@ class ResourceLogger extends AbstractFormatableLogger {
 	 * @return $this
 	 */
 	public function log($level, $message, array $context = array()) {
-		$fmtMessage = $this->getFormatter()->format($level, $message, $context, array());
-		fwrite($this->resource, $fmtMessage);
+		fwrite($this->resource, $message);
 		return $this;
 	}
 }
