@@ -25,7 +25,7 @@ abstract class AbstractLogger implements LoggerInterface {
 	 * @return $this
 	 */
 	public function alert($message, array $context = array()) {
-		$this->log(LogLevel::EMERGENCY, $message, $context);
+		$this->log(LogLevel::ALERT, $message, $context);
 		return $this;
 	}
 
@@ -37,7 +37,7 @@ abstract class AbstractLogger implements LoggerInterface {
 	 * @return $this
 	 */
 	public function critical($message, array $context = array()) {
-		$this->log(LogLevel::ALERT, $message, $context);
+		$this->log(LogLevel::CRITICAL, $message, $context);
 		return $this;
 	}
 
