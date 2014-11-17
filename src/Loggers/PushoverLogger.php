@@ -38,7 +38,7 @@ class PushoverLogger extends AbstractFormatableLogger {
 			$parameters = $this->parameters;
 			$parameters['priority'] = $this->convertLevelToPriority($level);
 			if($parameters['priority']) {
-				$parameters['priority'] = 3600;
+				$parameters['expire'] = 3600;
 				$parameters['retry'] = 120;
 			}
 			$message = $this->getFormatter()->format($level, $message, $context, $parameters);

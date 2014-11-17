@@ -17,7 +17,7 @@ You can simply use `LoggerCollection` which also implements the LoggerInterface 
 
 ```PHP
 $errorLogger = new LoggerCollection();
-$errorLogger->add(new ErrorLogLogger());
+$errorLogger->add(new ErrorLogLogger()); 
 $errorLogger->add(new PushoverLogger(/* ... */));
 
 $logger = new LoggerCollection();
