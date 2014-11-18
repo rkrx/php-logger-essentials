@@ -56,7 +56,8 @@ class PushoverLogger extends AbstractFormatableLogger {
 		$ch = curl_init();
 		curl_setopt_array($ch, array(
 			CURLOPT_URL => "https://api.pushover.net/1/messages.json",
-			CURLOPT_POSTFIELDS => $parameters
+			CURLOPT_POSTFIELDS => $parameters,
+			CURLOPT_RETURNTRANSFER => true
 		));
 		curl_exec($ch);
 		curl_close($ch);
